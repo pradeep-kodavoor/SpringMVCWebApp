@@ -14,15 +14,15 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import static org.hibernate.cfg.Environment.*;
 
-@Configuration
-@PropertySource("classpath:db.properties")
-@EnableTransactionManagement
+/*@Configuration
+@PropertySource("classpath:db.properties")*/
+/*@EnableTransactionManagement*/
 @ComponentScans( value= {
 		@ComponentScan("com.spring.dao"), 
-		@ComponentScan("com.spring.dao")
+		@ComponentScan("com.spring.service")
 })
 public class AppConfig {
-	
+	/*
 	@Autowired
 	private Environment env;
 
@@ -64,6 +64,6 @@ public class AppConfig {
 		
 		return transactionManager;
 	
-	}
+	}*/
 	
 }
