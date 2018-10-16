@@ -14,8 +14,8 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import static org.hibernate.cfg.Environment.*;
 
-/*@Configuration
-@PropertySource("classpath:db.properties")*/
+@Configuration
+/*@PropertySource("classpath:db.properties")*/
 /*@EnableTransactionManagement*/
 @ComponentScans( value= {
 		@ComponentScan("com.spring.dao"), 
