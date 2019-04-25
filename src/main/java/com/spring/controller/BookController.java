@@ -22,36 +22,36 @@ public class BookController {
 
 	@Autowired
 	BookService bookServiceImpl;
-	
+
 	@GetMapping("/api/book")
-	public ResponseEntity<List<Book>> list(){
-		List<Book> booksList =  bookServiceImpl.list();
+	public ResponseEntity<List<Book>> list() {
+		List<Book> booksList = bookServiceImpl.list();
 		return ResponseEntity.ok().body(booksList);
 	}
-	
+
 	@PostMapping("api/book")
-	public ResponseEntity<?> save(@RequestBody Book book){
+	public ResponseEntity<String> save(@RequestBody Book book) {
 		long id = bookServiceImpl.saveBook(book);
-		return ResponseEntity.ok().body("Book created with id: "+id);
+		return ResponseEntity.ok().body("Book created with id: " + id);
 	}
-	
+
 	@GetMapping("api/book/{id}")
-	public ResponseEntity<Book> get(@PathVariable("id") long id){
+	public ResponseEntity<Book> get(@PathVariable("id") long id) {
 		Book book = bookServiceImpl.getBook(id);
-		return ResponseEntity.ok().body(book); 
+		return ResponseEntity.ok().body(book);
 	}
-	
+
 	@PutMapping("api/book/{id}")
-	public ResponseEntity<?> update(@PathVariable long id,@RequestBody Book book) {
+	public ResponseEntity<String> update(@PathVariable long id, @RequestBody Book book) {
 		bookServiceImpl.update(id, book);
 		return ResponseEntity.ok().body("Book has been updated");
-		
+
 	}
-	
+
 	@DeleteMapping("api/book/{id}")
-	public ResponseEntity<?> delete(@PathVariable long id){
+	public ResponseEntity<String> delete(@PathVariable long id) {
 		bookServiceImpl.delete(id);
 		return ResponseEntity.ok().body("Book has been deleted");
-		
+
 	}
 }
